@@ -78,6 +78,9 @@ return [
     */
 
     'locale' => 'en',
+    'locales' => ['en' => 'English', 'es' => 'Spanish'],
+    'multilang' => true,
+    'multilang_switcher_route' => 'language_switch',
 
     /*
     |--------------------------------------------------------------------------
@@ -162,21 +165,69 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
 
-        /*
-         * Package Service Providers...
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Security\SecurityServiceProvider::class,
+        Codesleeve\LaravelStapler\Providers\L5ServiceProvider::class,
+        GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
+
+
+        /**
+         * For DebugBar. Load it before RouteServiceProvider
          */
-
-        //
+        Radic\BladeExtensions\BladeExtensionsServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
+
+        /*
+         * For Laravel Forms
+         */
+        Collective\Html\HtmlServiceProvider::class,
+        /*
+         * Add Twig
+         */
+        TwigBridge\ServiceProvider::class,
+        /*
+         * Symfony Form service provider
+         */
+        Barryvdh\Form\ServiceProvider::class,
+
+        /*
+        |--------------------------------------------------------------------------
+        | MMS service providers
+        |--------------------------------------------------------------------------
+        */
+        /*
+         * Menu service provider
+         */
+        Mms\Menu\ServiceProvider::class,
+
+        /*
+        |--------------------------------------------------------------------------
+        | MMS Admin service providers
+        |--------------------------------------------------------------------------
+        */
+        /*
+         *
+         */
+        Mms\Laravel\ServiceProvider::class,
+        Mms\Symfony\Form\Eloquent\ServiceProvider::class,
+        Mms\Admin\ServiceProvider::class,
+        Mms\MultiLanguage\ServiceProvider::class,
+        Mms\Cache\ServiceProvider::class,
+        Mms\Assets\Laravel\ServiceProvider::class,
+        App\Providers\AdminServiceProvider::class,
+        Mms\EloquentDatagrid\ServiceProvider::class,
+        Mms\Acl\ServiceProvider::class,
+        Mms\Security\ServiceProvider::class,
 
     ],
 
@@ -225,6 +276,47 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Security'  => Barryvdh\Security\Facade::class,
+        'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
+
+        /*
+         * For Laravel Forms
+         */
+        'Form' => Collective\Html\FormFacade::class,
+        'HTML' => Collective\Html\HtmlFacade::class,
+
+        /*
+         * For DebugBar
+         */
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        /*
+         * Add Twig
+         */
+        'Twig' => TwigBridge\Facade\Twig::class,
+        /*
+         * Symfony Form facade
+         */
+        'FormFactory' => Barryvdh\Form\Facade\FormFactory::class,
+
+        /*
+        |--------------------------------------------------------------------------
+        | MMS facades
+        |--------------------------------------------------------------------------
+        */
+        /*
+         * Menu facade
+         */
+        'Menu' => Mms\Menu\Menu::class,
+
+        /*
+         * Menu facade
+         */
+        'JsAssets' => Mms\Assets\Laravel\Facades\JsAssets::class,
+
+        /*
+         * Multi language facade
+         */
+        'Multilanguage' => \Mms\MultiLanguage\Facades\MultiLanguage::class,
 
     ],
 
