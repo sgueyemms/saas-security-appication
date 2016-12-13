@@ -162,7 +162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:sgueyemms/laravel-security.git",
-                "reference": "205a4cb95cd428d6faefcc57c95e756f2dad6713"
+                "reference": "0d7a94b631f7ed145594b9bc235b387c7650a6c1"
             },
             "require": {
                 "illuminate/support": "5.0.x|5.1.x|5.2.x|5.3.x",
@@ -200,7 +200,7 @@
                 "security",
                 "voters"
             ],
-            "time": "2016-10-14 06:44:18"
+            "time": "2016-12-11 02:30:06"
         },
         {
             "name": "cache/adapter-common",
